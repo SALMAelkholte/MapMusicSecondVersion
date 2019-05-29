@@ -87,7 +87,7 @@
               echo '<div class="container">';
                 echo '<div class="row map-app-portfolio">';
                   $IdClientCommun = $_GET['IdClientCommunn'];
-                  getPlayList($IdClientCommun);
+                  getPlayListCommun($IdClientCommun);
                 echo '</div>';
               echo '</div>';
             echo '</section>';
