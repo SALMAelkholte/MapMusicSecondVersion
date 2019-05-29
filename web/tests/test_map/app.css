@@ -1,0 +1,20 @@
+.map__image {
+    width: 100%;
+    /*Float: left;*/
+}
+
+.map__image path {
+    fill: #FFF;
+    stroke: #000000;
+    stroke-width: 1px;
+    transition: fill 0.15s;
+}
+
+.map__image path:hover {
+    fill: #5bc0de;
+}
+
+.map {
+    max-width: 1200px;
+    margin: auto;
+}
