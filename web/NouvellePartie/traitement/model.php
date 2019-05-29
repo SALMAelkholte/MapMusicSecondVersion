@@ -226,4 +226,44 @@
 			echo "Rien trouvé sur votre play list";
 		}
 	}
+
+	function getPlayListCommun($idClient){
+		$con = getConnexion();
+
+	 	$stat = $con->query("select DISTINCT m.idmusique,m.titre,m.urldeezer,a.nomalbum,a.date_sortie,m.duree,ar.imgartiste,ar.nomartiste  from musique m, album a, artiste ar, dans_album d,interprete i, dans_playlist dp, avoir_playlist ap where  m.idmusique = d.idmusique AND a.idalbum = d.idalbum AND m.idmusique = i.idmusique AND ar.idartiste = i.idartiste AND m.idmusique IN (SELECT idmusique from dans_playlist where idplaylist = (select idplaylist FROM avoir_playlist where mailclient = '$idClient'))");
+	  	if($stat->num_rows > 0 ){
+		    while($row = $stat->fetch_assoc()) {
+		        echo "
+				    <div class=\"col-12 col-md-4 single_gallery_item entre wow fadeInUp\" data-wow-delay=\"0.2s\">
+				        <div class=\"app-map-music-area style-2 d-flex align-items-center flex-wrap\">
+				            <div class=\"app-map-music-thumbnail\">
+				              <img src=\"$row[imgartiste]\" alt=\"\">
+				            </div>
+				            <div class=\"app-map-music-content text-center\">
+				                <span class=\"music-published-date mb-2\">$row[date_sortie]</span>
+				                <h3>$row[nomalbum]</h3>
+					            <div class=\"music-meta-data\">
+					            	<p> <a href=\"#\" class=\"music-author\">$row[nomartiste]</a> | <a href=\"#\" class=\"music-catagory\">$row[titre]</a> | <a href=\"#\" class=\"music-duration\">$row[duree]</a></p>
+					            </div>
+					            <!-- Music Player -->
+					            <div class=\"app-map-music-player\">
+					            	<audio preload=\"auto\" controls>
+					                   <source src=\"$row[urldeezer]\">
+					                </audio>
+					            </div>
+					            <!-- Likes, Share & Download -->
+					            <div class=\"likes-share-download d-flex align-items-center justify-content-between\">
+					            	<a href=\"traitement/model.php?IdMusicAdd=$row[idmusique]\"><i class=\"fa fa-heart\" aria-hidden=\"true\"></i> Ajouter a votre liste</a>
+					            	<a href=\"traitement/model.php?IdMusicVote=$row[idmusique]\"><i class=\"fas fa-thumbs-up\"></i>J'aime</a>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+		        ";
+		    }
+		}
+		elseif($stat->num_rows == 0){
+			echo "Rien trouvé sur votre play list";
+		}
+	}
 ?>
