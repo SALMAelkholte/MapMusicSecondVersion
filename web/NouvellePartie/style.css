@@ -1,0 +1,64 @@
+@import url(css/bootstrap.min.css);
+* {
+	margin: 0;
+	padding: 0;
+}
+.music-published-date, .music-catagory,.music-duration, .music-author{
+  color: white;
+}
+.section-padding-80 {
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+.container {
+	max-width: 1040px;
+	margin: auto;
+}
+.music-meta-data{
+  margin-left: 30px;
+}
+.single_gallery_item{
+  padding: 12px;
+  background-color: #111111;
+  border: 10px solid #2e2e2e;
+}
+body {
+	font-family: "HK Grotesk";
+	font-weight: 400;
+	font-size: 14px;
+}
+h1, h2, h3, h4,h5, h6 {
+	font-family: "HK Grotesk";
+	color: white;
+	line-height: 1.4;
+	font-weight: 600;
+}
+a, a:active, a:focus, a:hover {
+	color: white;
+	text-decoration: none;
+	-webkit-transition-duration: 500ms;
+	-o-transition-duration: 500ms;
+	transition-duration: 500ms;
+	outline: none;
+}
+li {
+	list-style: none;
+}
+p {
+	line-height: 1.9;
+	color: #666666;
+	font-size: 16px;
+	font-weight: 400;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+ul li {
+	margin: 0;
+	padding: 0;
+}
